@@ -32,11 +32,11 @@ To send email:
 ## **Example**
 Included is an example script 'example.py' that provides an example of how to invoke both the 'reports.py' and 'emails.py' scripts to generate a PDF report and send that PDF as an attachment in an email. This assumes that both scripts mentioned above are in the same working directory as the script that is calling them.
 ```python
-reports.generate("/tmp/report.pdf", "A Complete Inventory of My Fruit", "This is all my fruit.", table_data)
-sender = "automation@example.com"
-receiver = "{}@example.com".format(os.environ.get('USER'))
-subject = "List of Fruits"
-body = "Hi\n\nI'm sending an attachment with all my fruit."
-message = emails.generate(sender, receiver, subject, body, "/tmp/report.pdf")
+reports.generate(filename, title, additional_info, table_data)
+sender = "sender@example.com"
+receiver = "receiver@example.com".format(os.environ.get('USER'))
+subject = "Subject"
+body = "Body ..."
+message = emails.generate(sender, receiver, subject, body, attachment_filename)
 emails.send(message)
 ```
